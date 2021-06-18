@@ -1,0 +1,150 @@
+﻿<html>
+<head>
+    <title> Door to Road</title>
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/loginStyle.css">
+</head>
+<body>
+    <div class="main" >
+        <nav>
+            <div class="logo">
+                <img src="~/Images/drlogo.png" />
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
+                  
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="wasteType">
+            <div class="overlay"></div>
+            <img src="~/Images/e.png" class="earth">
+            <div id="circle">
+                <div class="waste kitchen">
+                    <img src="~/Images/kitchen.png" />
+                    <div>
+                        <h4>KITCHEN WASTE</h4>
+                        <p>Food left overs, vegetable peels</p>
+                    </div>
+                </div>
+                <div class="waste party">
+                    <img src="~/Images/party.png" />
+                    <div>
+                        <h4>PARTY WASTE</h4>
+                        <p>Food left overs</p>
+                    </div>
+                </div>
+                <div class="waste fruit">
+                    <img src="~/Images/fruits.png" />
+                    <div>
+                        <h3>FRUIT WASTE</h3>
+                        <p>Fruit peels, rotten fruits</p>
+                    </div>
+                </div>
+                <div class=" waste puja">
+                    <img src="~/Images/puja.png" />
+                    <div>
+                        <h3>PUJA WASTE</h3>
+                        <p>Flowers used for puja</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <img src="~/Images/uarrow.png" id="upBtn">
+            <h3>SHARE</h3>
+            <img src="~/Images/uarrow.png" id="downBtn">
+        </div>
+
+    </div>
+
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                   
+                    <button type="button" class="toggle-btn" onclick="login()" id="login-button" style="color:blueviolet;">Log In</button>
+                    <button type="button" class="toggle-btn" onclick="register()" id="register-button"style="color:black;">Register</button>
+                    <button type="button" id="modalclosed" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+
+                <div class="modal-body" >
+                    <div class="form-box">
+                       
+                        <form id="login" class="input-group" >
+                            <input type="text" class="input-field" placeholder="User ID" required>
+                            <input type="text" class="input-field" placeholder="Password" required>
+                            <input type="checkbox" class="check-box" id="chkboxLogin">
+                            <label for="chkboxLogin">Remember Password</label>
+                            <button type="submit" class="submit-btn">Log In</button>
+                        </form>
+                        <form id="register" class="input-group" style="display:none;">
+                            <input type="email" class="input-field" placeholder="Email ID" required>
+                            <input type="text" class="input-field" placeholder="User ID" required>
+                            <input type="text" class="input-field" placeholder="Password" required>
+                            <input type="checkbox" class="check-box" id="chkboxRegister">
+                            <label for="chkboxRegister">I agree to the terms and conditions</label>
+                            <button type="submit" class="submit-btn">Register</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        var circle = document.getElementById("circle");
+        var upBtn = document.getElementById("upBtn");
+        var downBtn = document.getElementById("downBtn");
+
+        var rotateValue = circle.style.transform;
+        var rotateSum;
+
+        upBtn.onclick = function () {
+            rotateSum = rotateValue + "rotate(-90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+        }
+
+        downBtn.onclick = function () {
+            rotateSum = rotateValue + "rotate(90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+        }
+
+        function register() {
+            $("#register").show();
+            $("#login").hide();
+            $("#register-button").css('color', 'blueviolet');
+            $("#login-button").css('color', 'black');
+           
+        }
+
+        function login() {
+            $("#login").show();
+            $("#register").hide();
+           
+            $("#login-button").css('color', 'blueviolet');
+            $("#register-button").css('color', 'black');
+          
+        }
+
+    </script>
+
+</body>
+
+</html>
